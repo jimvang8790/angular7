@@ -72,6 +72,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     - Properties = define by DOM (Document Object Model)
     - Attribute initialize DOM properties and then they are done. Attribute values cannot change once they are initialized
     - Properties values however can change
+    - Why use Property binding? Because there is a limitation to Interpolation and it can only work with string values and there are HTML properties that are boolean properties that we may need to bind to.
+
+#Two-Way Binding
+    - Allows update to a property and at the same time dispay a value of that property.
+    - Angular provides another directive namely the ng model directive    
 
 ## Structure Directives
     - Add or remove HTML elements
