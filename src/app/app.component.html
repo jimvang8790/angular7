@@ -3,7 +3,8 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-test></app-test>
+  <h2>childEvent message here: {{message}}</h2>
+  <app-test (childEvent)="message=$event" [parentData]="myName"></app-test>
 </div>
 
 

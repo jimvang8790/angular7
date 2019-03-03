@@ -1,4 +1,5 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, Input, Output, EventEmitter } from '@angular/core';
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-test',
@@ -84,6 +85,13 @@ import { Component, OnInit, NgModule } from '@angular/core';
               <div *ngFor="let color of colors; even as e">
                 <h3>{{e}} = {{color}}</h3>
               </div>
+              <!-- Component Interaction -->
+              <h1>Component Interaction : Parent Component to Child Component</h1>
+              <h3>{{"Hello " + parentData}}</h3>
+              <p>In component interaction, we are sending the data from the parent component to the child component and displaying it in the child compoenet</p>
+              <h1>Component Interaction : Child Component to Parent Component, using Events</h1>
+              <p>send message to top of the page</p>
+              <button (click)="fireEvent()">Send Event</button>
             </div>`,
   styles: [`
     .section-1 h1 {
@@ -143,6 +151,15 @@ export class TestComponent implements OnInit {
   // ngFor Directive
   public colors = ['red', 'blue', 'green', 'yellow'];
 
+  // Component Interaction
+  @Input() public parentData; // need away to inform to the test.component, hey this is not a normal property this is an input property and will recieve this vaule from the parent so we use the input decorator
+  // Import Input from @angular/core at top of page
+  // Can also be written as 
+  // @Input('parentData') public myName;
+
+  // Now let's send data from the child component to the parent component using Event
+  @Output() public childEvent = new EventEmitter(); // Import EventEmitter and Output from @angular/core
+
   constructor() { }
 
   ngOnInit() {
@@ -161,6 +178,11 @@ export class TestComponent implements OnInit {
   // Template Reference Variables
   logMessage(value) {
     console.log(value);
+  }
+
+  // Component Interaction
+  fireEvent() {
+    this.childEvent.emit('Hey Child Event');
   }
 
 }
