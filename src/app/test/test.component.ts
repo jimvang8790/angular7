@@ -62,6 +62,28 @@ import { Component, OnInit, NgModule } from '@angular/core';
                 <div *ngSwitchCase="'green'">You Pick green</div>
                 <div *ngSwitchDefault>Pick Again</div>
               </div>
+              <!-- ngFor Directive -->
+              <h1>ngFor Directive</h1>
+              <h2>index as i</h2>
+              <div *ngFor="let color of colors; index as i">
+                <h3>{{i + 1}}. {{color}}</h3>
+              </div>
+              <h2>first as f</h2>
+              <div *ngFor="let color of colors; first as f">
+                <h3>{{f}} = {{color}}</h3>
+              </div>
+              <h2>last as il</h2>
+              <div *ngFor="let color of colors; last as l">
+                <h3>{{l}} = {{color}}</h3>
+              </div>
+              <h2>odd as o</h2>
+              <div *ngFor="let color of colors; odd as o">
+                <h3>{{o}} = {{color}}</h3>
+              </div>
+              <h2>even as e</h2>
+              <div *ngFor="let color of colors; even as e">
+                <h3>{{e}} = {{color}}</h3>
+              </div>
             </div>`,
   styles: [`
     .section-1 h1 {
@@ -117,6 +139,9 @@ export class TestComponent implements OnInit {
 
   // ngSwtich Directive
   public color = 'red'; // change this to red, blue, or green to display different message for ngSwtich Directive
+
+  // ngFor Directive
+  public colors = ['red', 'blue', 'green', 'yellow'];
 
   constructor() { }
 
