@@ -92,6 +92,34 @@ import { Component, OnInit, NgModule, Input, Output, EventEmitter } from '@angul
               <h1>Component Interaction : Child Component to Parent Component, using Events</h1>
               <p>send message to top of the page</p>
               <button (click)="fireEvent()">Send Event</button>
+              <!-- Pipes -->
+              <h1>Pipes</h1>
+              <h3>{{name3}}</h3>
+              <h3>name | lowercase = {{name3 | lowercase}}</h3>
+              <h3>name | uppercase = {{name3 | uppercase}}</h3>
+              <h3>message | titlecase(uppercase first letter of every word) = {{message3 | titlecase}}</h3>
+              <h3>name | slice3:5 ('index start:index up to but not including' = takes in an arguement and can specify where a string has to start) = {{name3 | slice:3:5}}</h3>
+              <h3>person | json = {{person3 | json}}</h3>
+              <h3>person.firstName | json = {{person3.firstName | json}}</h3>
+              <h3>persone.lastName | json = {{person3.lastName | json}}</h3>
+              <h3>5.678 | number:'1.2-3' = {{5.678| number:'1.2-3'}}</h3>
+              <h3>5.678 | number:'3.4-5' = {{5.678| number:'3.4-5'}}</h3>
+              <h3>5.678 | number:'3.1-2' = {{5.678| number:'3.1-2'}}</h3>
+              <h3>0.25 | percent = {{0.25 | percent}}</h3>
+              <h3>0.25 | currency = {{0.25 | currency}}</h3>
+              <h3>0.25 | currency: 'GBP' = {{0.25 | currency: 'GBP'}}</h3>
+              <h3>0.25 | currency: 'EUR' = {{0.25 | currency: 'EUR'}}</h3>
+              <h3>0.25 | currency: 'GBP' = {{0.25 | currency: 'GBP'}}</h3>
+              <h3>date = {{date}}</h3>
+              <h3>date | date:'short' = {{date | date:'short'}}</h3>
+              <h3>date | date:'shortDate' = {{date | date:'shortDate'}}</h3>
+              <h3>date | date:'shortTime' = {{date | date:'shortTime'}}</h3>
+              <h3>date | date:'medium' = {{date | date:'medium'}}</h3>
+              <h3>date | date:'mediumDate' = {{date | date:'mediumDate'}}</h3>
+              <h3>date | date:'mediumTime' = {{date | date:'mediumTime'}}</h3>
+              <h3>date | date:'long' = {{date | date:'long'}}</h3>
+              <h3>date | date:'longDate' = {{date | date:'longDate'}}</h3>
+              <h3>date | date:'longTime' = {{date | date:'longTime'}}</h3>
             </div>`,
   styles: [`
     .section-1 h1 {
@@ -159,6 +187,15 @@ export class TestComponent implements OnInit {
 
   // Now let's send data from the child component to the parent component using Event
   @Output() public childEvent = new EventEmitter(); // Import EventEmitter and Output from @angular/core
+
+  // Pipes
+  public name3 = 'John Wick';
+  public message3 = 'Welcome to Codevolution';
+  public person3 = {
+    'firstName': 'John',
+    'lastName' : 'Doe'
+  };
+  public date = new Date();
 
   constructor() { }
 
